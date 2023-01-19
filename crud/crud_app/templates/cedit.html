@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+     {% load static %}
+    <title>Title</title>
+</head>
+<body>
+<h1>EDIT</h1>
+<form method="post" enctype="multipart/form-data"> {% csrf_token %}
+    <table>
+
+        <tr>
+            <td>
+                <label>name</label>
+                <input name="name" value="{{prod.name}}">
+            </td>
+        </tr>
+         <tr>
+            <td>
+                <label>description</label>
+                <input name="des" value="{{prod.des}}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>price</label>
+                <input name="price" value="{{prod.price}}">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {% if prod.image %}
+                <img src="{% static li %}"  height="100px" width="100px">
+                <label>image</label>
+                <input type="file" name="image">
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button  value="submit" class="btn btn-primary">update
+                </button>
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+</body>
+</html>
+
